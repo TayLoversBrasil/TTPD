@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tortured Poets Department - Taylor Swift</title>
+  <style>
+    :root {
+      --westar: #e2e0da;
+      --armadillo: #3d352f;
+      --schooner: #867e75;
+      --flint: #6d645b;
+      --zorba: #9e988d;
+      --nomad: #b5ada4;
+      --zambezi: #6a5c5c;
+      --dawn: #a39f9c;
+    }
+
+    body {
+      background-color: var(--westar);
+      color: var(--armadillo);
+      font-family: "Big Caslon", serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: var(--flint);
+    }
+
+    .album-info {
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .countdown {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>The Tortured Poets Department - Taylor Swift</h1>
+    <div class="album-info">
+      <p>O álbum "The Tortured Poets Department" de Taylor Swift será lançado em <span id="releaseDate">19 de abril</span> à meia-noite, horário da Pensilvânia.</p>
+      <p>Músicas:</p>
+      <ul id="tracklist">
+        <!-- As músicas serão adicionadas aqui com JavaScript -->
+      </ul>
+    </div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <script>
+    // Data de lançamento do álbum (ano, mês, dia, hora, minuto, segundo)
+    const releaseDate = new Date(2024, 3, 19, 0, 0, 0).getTime();
+
+    // Atualiza o contador regressivo a cada segundo
+    const countdown = document.getElementById('countdown');
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = releaseDate - now;
+
+      // Cálculos para dias, horas, minutos e segundos
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Exibe o contador regressivo
+      countdown.innerHTML = `Tempo restante: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Lista de músicas
+    const tracks = [
+      "The Tortured Poets Department",
+      "My Boy Only Breaks His Favorite Toys",
+      "Down Bad",
+      "So Long, London",
+      "But Daddy I Love Him",
+      "Fresh Out the Slammer",
+      "Florida!!!",
+      "Guilty as Sin?",
+      "Who’s Afraid of Little Old Me?",
+      "I Can Fix Him (No Really I Can)",
+      "loml",
+      "I Can Do It With A Broken Heart",
+      "The Smallest Man Who Ever Lived",
+      "The Alchemy",
+      "Clara Bow",
+      "The Manuscript"
+    ];
+
+    // Adiciona as músicas à lista
+    const tracklist = document.getElementById('tracklist');
+    tracks.forEach(track => {
+      const li = document.createElement('li');
+      li.textContent = track;
+      tracklist.appendChild(li);
+    });
+  </script>
+</body>
+</html>
