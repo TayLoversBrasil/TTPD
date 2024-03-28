@@ -85,7 +85,7 @@
             <h1>The Tortured Poets Department</h1>
             <p>Lançamento do álbum de Taylor Swift</p>
             <p>Data: 19 de abril, à meia-noite (Horário da Pensilvânia)</p>
-                    <div id="countdown"></div>
+            <div id="countdown"></div>
         </header>
         <section id="tracklist">
             <h2>Tracklist</h2>
@@ -130,7 +130,7 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the countdown
-            document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
+            document.getElementById("countdown").innerHTML = "" + days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
 
             // If the countdown is over, display a message
