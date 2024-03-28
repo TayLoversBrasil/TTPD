@@ -1,137 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tortured Poets Department - Taylor Swift</title>
-  <style>
-    :root {
-      --westar: #e2e0da;
-      --armadillo: #3d352f;
-      --schooner: #867e75;
-      --flint: #6d645b;
-      --zorba: #9e988d;
-      --nomad: #b5ada4;
-      --zambezi: #6a5c5c;
-      --dawn: #a39f9c;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tortured Poets Department - Taylor Swift</title>
+    <style>
+        :root {
+            --westar: #e2e0da;
+            --armadillo: #3d352f;
+            --schooner: #867e75;
+            --flint: #6d645b;
+            --zorba: #9e988d;
+            --nomad: #b5ada4;
+            --zambezi: #6a5c5c;
+            --dawn: #a39f9c;
+            --flint: #6c6964;
+        }
 
-    body {
-      background-color: var(--westar);
-      color: var(--armadillo);
-      font-family: "Big Caslon", serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--westar);
+            color: var(--armadillo);
+            margin: 0;
+            padding: 0;
+        }
 
-    .container {
-      max-width: 800px;
-      padding: 20px;
-      text-align: center;
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    h1 {
-      color: var(--flint);
-      margin-bottom: 20px;
-    }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .album-info {
-      margin-top: 20px;
-    }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
+        p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
 
-    li {
-      margin-bottom: 10px;
-    }
+        #tracklist {
+            background-color: var(--nomad);
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-    .countdown {
-      font-size: 24px;
-      margin-top: 20px;
-    }
+        h2 {
+            font-size: 1.8rem;
+            color: var(--flint);
+            margin-bottom: 10px;
+        }
 
-    .album-info p {
-      font-size: 18px;
-    }
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .album-info p span {
-      font-weight: bold;
-      color: var(--flint);
-    }
-  </style>
+        li {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--flint);
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>The Tortured Poets Department - Taylor Swift</h1>
-    <div class="album-info">
-      <p>O álbum <span>"The Tortured Poets Department"</span> de Taylor Swift será lançado em <span id="releaseDate">19 de abril</span> à meia-noite, horário da Pensilvânia.</p>
-      <p>Músicas:</p>
-      <ul id="tracklist">
-        <!-- As músicas serão adicionadas aqui com JavaScript -->
-      </ul>
+    <div class="container">
+        <header>
+            <h1>The Tortured Poets Department</h1>
+            <p>Lançamento do álbum de Taylor Swift</p>
+            <p>Data: 19 de abril, à meia-noite (Horário da Pensilvânia)</p>
+        </header>
+        <section id="tracklist">
+            <h2>Tracklist</h2>
+            <ol>
+                <li>The Tortured Poets Department</li>
+                <li>My Boy Only Breaks His Favorite Toys</li>
+                <li>Down Bad</li>
+                <li>So Long, London</li>
+                <li>But Daddy I Love Him</li>
+                <li>Fresh Out the Slammer</li>
+                <li>Florida!!!</li>
+                <li>Guilty as Sin?</li>
+                <li>Who’s Afraid of Little Old Me?</li>
+                <li>I Can Fix Him (No Really I Can)</li>
+                <li>loml</li>
+                <li>I Can Do It With A Broken Heart</li>
+                <li>The Smallest Man Who Ever Lived</li>
+                <li>The Alchemy</li>
+                <li>Clara Bow</li>
+                <li>The Manuscript</li>
+            </ol>
+        </section>
     </div>
-    <div class="countdown" id="countdown"></div>
-  </div>
-
-  <script>
-    // Define a data de lançamento do álbum (ano, mês, dia, hora, minuto, segundo)
-    const releaseDate = new Date(2024, 3, 19, 0, 0, 0).getTime();
-
-    // Função para atualizar o contador regressivo
-    const updateCountdown = () => {
-      // Obtém a data e hora atuais
-      const now = new Date().getTime();
-
-      // Calcula a diferença entre a data de lançamento e a data atual
-      const distance = releaseDate - now;
-
-      // Calcula dias, horas, minutos e segundos restantes
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Atualiza o elemento HTML com o contador regressivo
-      document.getElementById('countdown').textContent = `Tempo restante: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    };
-
-    // Lista de músicas
-    const tracks = [
-      "The Tortured Poets Department",
-      "My Boy Only Breaks His Favorite Toys",
-      "Down Bad",
-      "So Long, London",
-      "But Daddy I Love Him",
-      "Fresh Out the Slammer",
-      "Florida!!!",
-      "Guilty as Sin?",
-      "Who’s Afraid of Little Old Me?",
-      "I Can Fix Him (No Really I Can)",
-      "loml",
-      "I Can Do It With A Broken Heart",
-      "The Smallest Man Who Ever Lived",
-      "The Alchemy",
-      "Clara Bow",
-      "The Manuscript"
-    ];
-
-    // Adiciona as músicas à lista
-    const tracklist = document.getElementById('tracklist');
-    tracks.forEach(track => {
-      const li = document.createElement('li');
-      li.textContent = track;
-      tracklist.appendChild(li);
-    });
-
-    // Chama a função para atualizar o contador regressivo a cada segundo
-    setInterval(updateCountdown, 1000);
-  </script>
 </body>
 </html>
