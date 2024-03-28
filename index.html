@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tortured Poets Department - Taylor Swift</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Big+Caslon&display=swap');
+
         :root {
             --westar: #e2e0da;
             --armadillo: #3d352f;
@@ -18,7 +20,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Big Caslon', serif;
             background-color: var(--westar);
             color: var(--armadillo);
             margin: 0;
@@ -69,6 +71,12 @@
             margin-bottom: 5px;
             color: var(--flint);
         }
+
+        #countdown {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -77,6 +85,7 @@
             <h1>The Tortured Poets Department</h1>
             <p>Lançamento do álbum de Taylor Swift</p>
             <p>Data: 19 de abril, à meia-noite (Horário da Pensilvânia)</p>
+                    <div id="countdown"></div>
         </header>
         <section id="tracklist">
             <h2>Tracklist</h2>
@@ -100,5 +109,36 @@
             </ol>
         </section>
     </div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Apr 19, 2024 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+
+            // Get the current date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            var distance = countDownDate - now;
+
+            // Calculate the days, hours, minutes, and seconds remaining
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
